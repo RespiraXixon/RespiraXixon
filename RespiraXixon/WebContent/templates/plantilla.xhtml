@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+		<head>
+		<title><ui:insert name="pageTitle">Page Title</ui:insert></title>
+		<link rel="stylesheet" type="text/css" media="all" href="../css/estilo.css" />
+		</head>
+
+
+<h:body>
+ 
+	<div id="pagina">
+ 
+	    <div id="cabecera">
+		<ui:insert name="cabecera" >
+		  <ui:include src="/templates/cabecera.xhtml" />
+		</ui:insert>
+	    </div>
+	    <div id="cuerpo">
+	 		<div id="menu">
+				<ui:insert name="menu" >
+				  <ui:include src="/templates/menu.xhtml" />
+				</ui:insert>
+		    </div>
+		    <div id="contenido">
+			  	<ui:insert name="contenido" >
+			 	  <ui:include src="/templates/contenido.xhtml" />
+			   	</ui:insert>
+		    </div>
+		</div> 
+	    <div id="pie">
+	    	<ui:insert name="pie" >
+	    	  <ui:include src="/templates/pie.xhtml" />
+	    	</ui:insert>
+    	    </div>
+ 
+        </div>
+ 
+    </h:body>		
+</html>
