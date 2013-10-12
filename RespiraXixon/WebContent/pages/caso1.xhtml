@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:composition template="/templates/plantilla.xhtml">
+		<ui:define name="contenido">
+			<div id="mapa">
+				<script>
+			
+					var map;
+					var ajaxRequest;
+					var plotlist;
+					var plotlayers=[];
+
+					function inicializa_mapa() {
+						// crea mapa
+						map = new L.Map('mapa');
+
+						// crea el layer
+						var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+						var osmAttrib='Map data © OpenStreetMap contributors';
+						var osm = new L.TileLayer(osmUrl, {minZoom: 8, maxZoom: 18, attribution: osmAttrib});		
+
+						// Comenzamos el mapa en Gijon
+						map.setView(new L.LatLng(43.5450394,-5.6626443),13);
+						map.addLayer(osm);
+
+						//Insertamos iconos
+						
+						
+						var LeafIcon = L.Icon.extend({
+							options: {
+								iconSize:     [15, 35],
+								iconAnchor:   [15, 35],
+								popupAnchor:  [-3, -76]
+							}
+						});
+						
+						var semaforo_verde = new LeafIcon({iconUrl: '../images/semaforo_verde.jpg'}),
+							semaforo_ambar = new LeafIcon({iconUrl: '../images/semaforo_rojo.jpg'}),
+							semaforo_rojo = new LeafIcon({iconUrl: '../images/semaforo_ambar.jpg'});
+
+						L.marker([43.5355709,-5.6470224], {icon: semaforo_verde}).bindPopup("Avenida de la Costa").addTo(map);
+						L.marker([43.5352659,-5.6436193], {icon: semaforo_ambar}).bindPopup("El Bibio").addTo(map);
+						L.marker([43.5603303,-5.7053427], {icon: semaforo_rojo}).bindPopup("El Musel").addTo(map);
+
+										
+					}
+					inicializa_mapa();
+		</script>
+			</div>
+		</ui:define>
+	</ui:composition>
+</html>
