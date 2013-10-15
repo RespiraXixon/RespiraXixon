@@ -19,7 +19,12 @@
 	<navigation-rule>
 		<from-view-id>/pages/caso2.xhtml</from-view-id>
 	</navigation-rule>
-	
+	<navigation-rule>
+		<from-view-id>/pages/caso3.xhtml</from-view-id>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/pages/caso4.xhtml</from-view-id>
+	</navigation-rule>		
     <application>
         <resource-bundle>
             <base-name>resources</base-name>
